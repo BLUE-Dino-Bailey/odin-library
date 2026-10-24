@@ -1,0 +1,152 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    margin: 10px 0 10px 0;
+
+    color: rgb(137, 168, 50);
+}
+
+nav > h1{
+    font-size: 56px;
+    font-weight: 800;
+}
+
+.nav-buttons{
+    margin: 10px 0 10px 0;
+    justify-items: center;
+
+    border-bottom: 2px solid rgb(104, 128, 37);
+}
+
+.nav-buttons > div{
+    padding: 8px;
+}
+
+.nav-buttons > div > button{
+    
+    font-size: 18px;
+    font-weight: 600;
+    padding: 4px;
+    
+
+    border: none;
+    border-radius: 6px;
+    color: white;
+    background-color: rgb(137, 168, 50);
+}
+
+.main-container{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-auto-rows: min-content;
+}
+
+.side-bar{
+    border-right: 2px solid rgb(104, 128, 37);
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+form > button{
+    font-size: 16px;
+    font-weight: 600;
+    padding: 6px 12px 6px 12px;
+    Border: none;
+    border-radius: 6px;
+    color: white;
+    background-color: rgb(137, 168, 50);
+
+    transition-duration: 0.3s;
+}
+
+form > button:hover{
+    
+    background-color: rgb(104, 128, 37);
+}
+
+.book-list{
+    min-height: 600px;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    grid-auto-rows: min-content;
+    gap: 20px;
+    
+    padding: 16px;
+}
+
+.book-card{
+
+    border: 2px solid;
+    border-radius: 8px;
+    border-color: rgb(137, 168, 50);
+}
+
+.book-card > div:first-of-type{
+    overflow: hidden;
+    color: white;
+    background-color: rgb(137, 168, 50);
+}
+
+.book-card > div:not(:first-of-type){
+    padding: 8px;
+}
+
+.title > h3{
+    padding: 16px 8px 8px 8px;
+}
+
+.book-info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.book-actions{
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.book-actions > button {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 6px 12px 6px 12px;
+    Border: none;
+    border-radius: 6px;
+    color: white;
+    background-color: rgb(137, 168, 50);
+
+    transition-duration: 0.3s;
+}
+
+.book-actions > button:hover{
+    
+    background-color: rgb(104, 128, 37);
+}
+
+footer{
+    text-align: center;
+    align-content: center;
+    
+    color: white;
+    height: 50px;
+    border-top: 2px solid rgb(104, 128, 37);
+    background-color: rgb(137, 168, 50);
+
+}
