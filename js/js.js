@@ -1,6 +1,6 @@
 const myLibrary = [];
 
-function Book(id, title, author, pages, read){
+/*function Book(id, title, author, pages, read){
     this.id = id;
     this.title = title;
     this.author = author;
@@ -9,13 +9,54 @@ function Book(id, title, author, pages, read){
     this.info = function(){
         return `The ${this.title} by ${this.author}, ${String(this.pages)}, ${String(this.read)}`;
     }
+}*/
+
+class Book{
+    #id;
+    #title;
+    #author;
+    #pages;
+    #read;
+
+    constructor(id, title, author, pages, read){
+        this.#id = id;
+        this.#title = title;
+        this.#author = author;
+        this.#pages = pages;
+        this.#read = read;
+    }
+    
+    getID(){
+        return this.#id;
+    }
+    getTitle(){
+        return this.#title;
+    }
+    getAuthor(){
+        return this.#author;
+    }
+    getPages(){
+        return this.#pages;
+    }
+    getRead(){
+        return this.#read;
+    }
+    setRead(){
+        console.log(this.read);
+        this.#read = true;
+    }
+    info(){
+        return `The ${this.#title} by ${this.#author}, ${String(this.#pages)}, ${String(this.#read)}`;
+    }
+
 }
 
+/*
 Book.prototype.markRead = function(){
     console.log(this.read);
     this.read = true;
 }
-
+*/
 
 function addBookToLibrary(title, author, pages, read){
     let id = crypto.randomUUID();
@@ -31,7 +72,7 @@ function displayBooks(){
     for(i = 0 ; i < myLibrary.length ; i++){
         const bookCard = document.createElement("div");
         bookCard.classList.add("book-card");
-        bookCard.dataset.bookID = myLibrary[i].id;
+        bookCard.dataset.bookID = myLibrary[i].getID();
         container.appendChild(bookCard);
         
         const titleDiv = document.createElement("div");
@@ -67,10 +108,10 @@ function displayBooks(){
         btnDelete.textContent = "Delete";
         bookActions.appendChild(btnDelete);
 
-        titleHeader.textContent = `Title: ${myLibrary[i].title}`;
-        authorHeader.textContent = `Author: ${myLibrary[i].author}`;
-        pagesHeader.textContent = `Pages: ${myLibrary[i].pages}`;
-        readHeader.textContent = `Read: ${myLibrary[i].read}`;
+        titleHeader.textContent = `Title: ${myLibrary[i].getTitle()}`;
+        authorHeader.textContent = `Author: ${myLibrary[i].getAuthor()}`;
+        pagesHeader.textContent = `Pages: ${myLibrary[i].getPages()}`;
+        readHeader.textContent = `Read: ${myLibrary[i].getRead()}`;
         infoParagraph.textContent = myLibrary[i].info();
     }
     completedButtons()
@@ -116,15 +157,15 @@ function completedButtons(){
 
             let i = 0;
             for(i = 0 ; i < myLibrary.length ; i++){
-                if(myLibrary[i].id == bookID){
-                    if(myLibrary[i].read == true){
+                if(myLibrary[i].getID() == bookID){
+                    if(myLibrary[i].getRead() == true){
                         alert(`You have already read this book`);
                         console.log("BookID" + bookID);
                         break;
                     }
-                    alert(`Congratulations on finishing ${myLibrary[i].title}, on to the next one!`);
-                    console.log(`Congratulations on completing ${myLibrary[i].title}`);
-                    myLibrary[i].markRead();
+                    alert(`Congratulations on finishing ${myLibrary[i].getTitle()}, on to the next one!`);
+                    console.log(`Congratulations on completing ${myLibrary[i].getTitle()}`);
+                    myLibrary[i].setRead();
                     break;
                 }
             }
@@ -140,7 +181,7 @@ function deleteButtons(){
             const bookCard = button.closest(".book-card");
             const bookID = bookCard.dataset.bookID;
             for(let i = 0 ; i < myLibrary.length ; i++){
-                if(myLibrary[i].id == bookID){
+                if(myLibrary[i].getID() == bookID){
                     myLibrary.splice(i, 1);
                     bookCard.remove();
                     console.log(`Book of ID ${bookID} deleted`);
