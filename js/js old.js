@@ -1,3 +1,5 @@
+//This is the old version of the Javascript code that uses an object to store data instead of a class
+
 const myLibrary = [];
 
 function Book(id, title, author, pages, read){

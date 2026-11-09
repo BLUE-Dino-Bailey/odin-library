@@ -1,16 +1,5 @@
 const myLibrary = [];
 
-/*function Book(id, title, author, pages, read){
-    this.id = id;
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.info = function(){
-        return `The ${this.title} by ${this.author}, ${String(this.pages)}, ${String(this.read)}`;
-    }
-}*/
-
 class Book{
     #id;
     #title;
@@ -50,13 +39,6 @@ class Book{
     }
 
 }
-
-/*
-Book.prototype.markRead = function(){
-    console.log(this.read);
-    this.read = true;
-}
-*/
 
 function addBookToLibrary(title, author, pages, read){
     let id = crypto.randomUUID();
